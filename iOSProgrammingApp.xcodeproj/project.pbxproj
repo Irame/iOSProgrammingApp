@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F6CDCFD1C282CA7001ED2DF /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CDCFC1C282CA7001ED2DF /* CityData.swift */; };
+		3F6CDCFF1C2832D7001ED2DF /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CDCFE1C2832D7001ED2DF /* WeatherData.swift */; };
 		8FFE808970C8B08BD8CA438C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE8F0B5EDEA0FB77394C06 /* AppDelegate.swift */; };
 		8FFE8893E2D1A6DFC38B8700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE84B84AE8B914B5585743 /* LaunchScreen.storyboard */; };
 		8FFE89943D368319183E65E4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE8842A4F53734F0893C6D /* Info.plist */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F6CDCFC1C282CA7001ED2DF /* CityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
+		3F6CDCFE1C2832D7001ED2DF /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		8FFE801F3B582527DFBDEB72 /* iOSProgrammingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProgrammingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FFE817C03C90E54805617BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FFE83AF798CD4EFC983BBE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 				8FFE8EDC7B810422A36AED5D /* iOSProgrammingApp.xcdatamodeld */,
 				8FFE8197CCD7260D6210F6B0 /* Main.storyboard */,
 				8FFE85F29472F5163ABDF626 /* ViewController.swift */,
+				3F6CDCFC1C282CA7001ED2DF /* CityData.swift */,
+				3F6CDCFE1C2832D7001ED2DF /* WeatherData.swift */,
 			);
 			path = iOSProgrammingApp;
 			sourceTree = "<group>";
@@ -133,6 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F6CDCFD1C282CA7001ED2DF /* CityData.swift in Sources */,
+				3F6CDCFF1C2832D7001ED2DF /* WeatherData.swift in Sources */,
 				8FFE808970C8B08BD8CA438C /* AppDelegate.swift in Sources */,
 				8FFE8FBF0F21B373F6AAD755 /* iOSProgrammingApp.xcdatamodeld in Sources */,
 				8FFE8E3BEB89C318D372CB65 /* ViewController.swift in Sources */,
