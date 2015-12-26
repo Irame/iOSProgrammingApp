@@ -9,7 +9,7 @@
 import Foundation
 
 
-class cityData {
+class CityData {
     
     let name:String
     let country:String
@@ -26,8 +26,8 @@ class cityData {
     }
     
     func addForecastedWeather(weather : WeatherData){
-        if let forecastWeather = forecastWeather {
-            self.forecastWeather?.insert(weather, atIndex: (self.forecastWeather?.endIndex)!)
+        if var forecastWeather = forecastWeather {
+            forecastWeather.insert(weather, atIndex: (self.forecastWeather?.endIndex)!)
         }
     }
 }

@@ -17,6 +17,7 @@ enum conditionType : String {
 
 class WeatherData {
     
+    let date : String = ""
     var currentTemperature : Float = 0.0
     var condition = conditionType.notSet
     var wind : Float = 0.0
