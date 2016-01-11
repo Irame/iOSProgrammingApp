@@ -18,7 +18,12 @@ class CityListCell: UITableViewCell {
     @IBOutlet weak var LblCondition: UILabel!
     func configureCellForCity(data: CityData) {
         LblCityName.text = data.name
-        LblTemperature.text = String(data.currentWeather?.currentTemperature)
+        if let temp = data.currentWeather?.currentTemperature {
+            LblTemperature.text = String(format: "%.1f°", temp)
+        } else {
+            LblTemperature.text = String("--")
+        }
+        
         LblCondition.text = "none"
         LblCountryName.text = data.country
     }

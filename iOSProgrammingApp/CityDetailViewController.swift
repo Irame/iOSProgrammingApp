@@ -33,11 +33,37 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cityNameLbl.text = city.name
         countryLbl.text = city.country
-        temperatureLbl.text = String(city.currentWeather?.currentTemperature)
-        weatherConditionLbl.text = String(city.currentWeather?.condition)
-        windLbl.text = String(city.currentWeather?.wind)
-        humidityLbl.text = String(city.currentWeather?.humidity)
-        dateLbl.text = city.currentWeather?.date
+        if let temp = city.currentWeather?.currentTemperature {
+            temperatureLbl.text = String(format: "Temperature %.1f°", temp)
+        }
+        else {
+            temperatureLbl.text = String("--")
+        }
+        
+        if let cond = city.currentWeather?.condition {
+            weatherConditionLbl.text = String(format: "Condition %s", cond.rawValue)
+        } else {
+            weatherConditionLbl.text = String("--")
+        }
+        
+        if let wind = city.currentWeather?.wind {
+            windLbl.text = String(format: "Wind %.1f", wind)
+        } else {
+            windLbl.text = String("--")
+        }
+        
+        if let humidity = city.currentWeather?.humidity {
+            humidityLbl.text = String(format: "Humidity %.1f", humidity)
+        } else {
+            humidityLbl.text = String("--")
+        }
+        
+        if let date = city.currentWeather?.date {
+            dateLbl.text = String(format: "%s", date)
+        } else {
+            dateLbl.text = String("--")
+        }
+        
         
         // Do any additional setup after loading the view.
     }

@@ -203,7 +203,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcE-QN-8T5">
-                                <rect key="frame" x="530.5" y="63" width="49.5" height="30"/>
+                                <rect key="frame" x="530" y="123" width="49.5" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -217,29 +217,37 @@
                             <constraint firstItem="c9W-Ic-vpP" firstAttribute="top" secondItem="Am5-Ke-mh7" secondAttribute="bottom" constant="8" id="0ze-mn-lbc"/>
                             <constraint firstItem="hZT-3C-OTd" firstAttribute="centerX" secondItem="c9W-Ic-vpP" secondAttribute="centerX" id="1SD-Cs-PRr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="797-0w-KV5" secondAttribute="trailing" id="2a0-Wv-qqG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NcE-QN-8T5" secondAttribute="trailing" constant="0.5" id="2vn-CI-G8c"/>
+                            <constraint firstItem="797-0w-KV5" firstAttribute="top" secondItem="NcE-QN-8T5" secondAttribute="bottom" constant="8" id="6rZ-0P-pJI"/>
                             <constraint firstItem="797-0w-KV5" firstAttribute="top" secondItem="hZT-3C-OTd" secondAttribute="bottom" constant="21" id="BJD-c6-HTW"/>
                             <constraint firstItem="JS8-1F-J3U" firstAttribute="trailing" secondItem="rl2-wP-3jV" secondAttribute="trailing" id="KS4-PK-07J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NcE-QN-8T5" secondAttribute="trailing" constant="0.5" id="KT3-fo-Kct"/>
                             <constraint firstItem="GKn-hN-eQc" firstAttribute="top" secondItem="y7m-qX-EDS" secondAttribute="bottom" constant="20" id="OB3-J2-hfy"/>
                             <constraint firstItem="rl2-wP-3jV" firstAttribute="top" secondItem="BCj-lL-jAd" secondAttribute="bottom" constant="8" id="OhW-ld-fpo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NcE-QN-8T5" secondAttribute="trailing" id="R4z-cn-KYx"/>
                             <constraint firstItem="y7m-qX-EDS" firstAttribute="leading" secondItem="IwQ-oh-Snr" secondAttribute="leadingMargin" id="Yst-r3-g5k"/>
                             <constraint firstItem="c9W-Ic-vpP" firstAttribute="centerX" secondItem="IwQ-oh-Snr" secondAttribute="centerX" id="adc-uU-HHB"/>
                             <constraint firstItem="BCj-lL-jAd" firstAttribute="top" secondItem="797-0w-KV5" secondAttribute="bottom" constant="8" id="bK0-U8-5NO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="e6o-6A-Jof" secondAttribute="leading" id="bdc-fS-L2T"/>
                             <constraint firstItem="e6o-6A-Jof" firstAttribute="bottom" secondItem="JS8-1F-J3U" secondAttribute="bottom" id="d6L-Zp-L4B"/>
                             <constraint firstItem="hZT-3C-OTd" firstAttribute="top" secondItem="c9W-Ic-vpP" secondAttribute="bottom" constant="8" id="fH5-bM-O9C"/>
+                            <constraint firstItem="NcE-QN-8T5" firstAttribute="top" secondItem="Am5-Ke-mh7" secondAttribute="bottom" id="ifa-gz-f2l"/>
                             <constraint firstItem="y7m-qX-EDS" firstAttribute="trailing" secondItem="IwQ-oh-Snr" secondAttribute="trailingMargin" id="meZ-5R-frz"/>
-                            <constraint firstItem="c9W-Ic-vpP" firstAttribute="top" secondItem="NcE-QN-8T5" secondAttribute="bottom" constant="-21" id="prK-pu-ONG"/>
                             <constraint firstItem="rl2-wP-3jV" firstAttribute="trailing" secondItem="BCj-lL-jAd" secondAttribute="trailing" id="vXe-hj-AUW"/>
                             <constraint firstItem="y7m-qX-EDS" firstAttribute="top" secondItem="e6o-6A-Jof" secondAttribute="bottom" constant="10" id="yWl-Y1-cZz"/>
                             <constraint firstItem="JS8-1F-J3U" firstAttribute="top" secondItem="rl2-wP-3jV" secondAttribute="bottom" constant="8" id="z4U-Eh-fQX"/>
                             <constraint firstItem="e6o-6A-Jof" firstAttribute="top" secondItem="797-0w-KV5" secondAttribute="top" id="zrZ-uG-UbC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2vn-CI-G8c"/>
+                                <exclude reference="ifa-gz-f2l"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="cityNameLbl" destination="c9W-Ic-vpP" id="0vJ-gV-vr4"/>
                         <outlet property="countryLbl" destination="hZT-3C-OTd" id="ZjJ-Xh-bN5"/>
-                        <outlet property="dateLbl" destination="NcE-QN-8T5" id="koK-Zy-4sA"/>
+                        <outlet property="dateLbl" destination="NcE-QN-8T5" id="rw7-XD-iAB"/>
                         <outlet property="humidityLbl" destination="JS8-1F-J3U" id="Wpc-09-xg4"/>
                         <outlet property="temperatureLbl" destination="797-0w-KV5" id="OZY-8N-tOH"/>
                         <outlet property="weatherConditionLbl" destination="BCj-lL-jAd" id="7gF-ss-vgj"/>

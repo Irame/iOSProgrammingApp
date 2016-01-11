@@ -18,9 +18,18 @@ class CityTableViewController: UITableViewController {
     super.viewDidLoad()
     var wue = CityData(name:"Wuerzburg",country:"Deutschland")
     var sw = CityData(name:"Schweinfurt",country:"Deutschland")
+    
+    var weather = WeatherData()
+    weather.currentTemperature = 21
+    weather.humidity = 50
+    weather.condition = conditionType.couldy
+    weather.wind = 90.0
+    weather.date = "20.01.2016"
+    wue.setCurrentWeather(weather)
+    sw.setCurrentWeather(weather)
         
-        city.append(wue)
-        city.append(sw)
+    city.append(wue)
+    city.append(sw)
         
     // Do any additional setup after loading the view, typically from a nib.
     }
