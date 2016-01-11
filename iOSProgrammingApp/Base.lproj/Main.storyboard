@@ -10,14 +10,14 @@
         <!--Overview-->
         <scene sceneID="SIf-If-4tL">
             <objects>
-                <tableViewController id="ksc-N4-fHm" sceneMemberID="viewController">
+                <tableViewController id="ksc-N4-fHm" customClass="CityTableViewController" customModule="iOSProgrammingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" id="e0Y-sp-l2G">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="69" id="yN4-mc-IxQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CitylistCellIdentifier" rowHeight="69" id="yN4-mc-IxQ" customClass="CityListCell" customModule="iOSProgrammingApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yN4-mc-IxQ" id="vwr-Ly-PwK">
@@ -31,18 +31,11 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msv-iE-Em6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msv-iE-Em6" userLabel="Lbl Country">
                                             <rect key="frame" x="8" y="42" width="52.5" height="18"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoA-Zu-Rrz">
-                                            <rect key="frame" x="423.5" y="8" width="135.5" height="30"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="condition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGS-qd-NQO">
@@ -50,6 +43,13 @@
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoA-Zu-Rrz" userLabel="Lbl temperature">
+                                            <rect key="frame" x="423" y="8" width="135.5" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -67,7 +67,11 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
-                                    <segue destination="VTE-It-Dga" kind="show" id="gus-Ve-gwG"/>
+                                    <outlet property="LblCityName" destination="tGT-fN-SOd" id="k27-1Y-8ea"/>
+                                    <outlet property="LblCondition" destination="TGS-qd-NQO" id="T4Z-IL-x2B"/>
+                                    <outlet property="LblCountryName" destination="msv-iE-Em6" id="YTl-Lu-Vj8"/>
+                                    <outlet property="LblTemperature" destination="BoA-Zu-Rrz" id="42y-bX-lK0"/>
+                                    <segue destination="VTE-It-Dga" kind="show" identifier="cityDetailIdentifier" id="gus-Ve-gwG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -80,7 +84,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUf-GQ-cvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="1310"/>
+            <point key="canvasLocation" x="955" y="1322"/>
         </scene>
         <!--City Detail View Controller-->
         <scene sceneID="fOg-hH-VeG">
@@ -245,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekg-mS-uwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698" y="1310"/>
+            <point key="canvasLocation" x="1698" y="1286"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zqV-q4-mdl">
@@ -318,7 +322,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZz-41-o0o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="554"/>
+            <point key="canvasLocation" x="131" y="566"/>
         </scene>
         <!--Weather-->
         <scene sceneID="hzV-Ad-Y6P">

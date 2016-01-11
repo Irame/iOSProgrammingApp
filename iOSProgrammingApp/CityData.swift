@@ -18,7 +18,7 @@ class CityData {
     
     init(name:String, country:String){
         self.name = name
-        self.country = name
+        self.country = country
     }
     
     func setCurrentWeather(weather : WeatherData){
