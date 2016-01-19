@@ -11,9 +11,9 @@ import UIKit
 class SettingsCell: UITableViewCell {
 
     @IBOutlet weak var settingLbl: UILabel!
-    
-    
+
+
     func configureCellForSetting(data: String) {
-    settingLbl.text = data
+        settingLbl.text = data
     }
 }

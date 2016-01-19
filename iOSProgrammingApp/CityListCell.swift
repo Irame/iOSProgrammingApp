@@ -9,11 +9,11 @@
 import UIKit
 
 class CityListCell: UITableViewCell {
-    
+
     @IBOutlet weak var LblCityName: UILabel!
-    
+
     @IBOutlet weak var LblCountryName: UILabel!
-    
+
     @IBOutlet weak var LblTemperature: UILabel!
     @IBOutlet weak var LblCondition: UILabel!
     func configureCellForCity(data: CityData) {

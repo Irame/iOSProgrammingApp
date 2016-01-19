@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum conditionType : String {
+enum conditionType: String {
     case couldy = "cloudy"
     case windy = "windy"
     case sunny = "sunny"
@@ -16,26 +16,26 @@ enum conditionType : String {
 }
 
 class WeatherData {
-    
-    let date : String = ""
-    var currentTemperature : Float = 0.0
+
+    let date: String = ""
+    var currentTemperature: Float = 0.0
     var condition = conditionType.notSet
-    var wind : Float = 0.0
-    var humidity : Float = 0.0
-    
-    func setCurrentTemperature(temperature : Float) {
+    var wind: Float = 0.0
+    var humidity: Float = 0.0
+
+    func setCurrentTemperature(temperature: Float) {
         currentTemperature = temperature
     }
-    
-    func setWeatherCondition(condition : conditionType) {
+
+    func setWeatherCondition(condition: conditionType) {
         self.condition = condition
     }
-    
-    func setWindCondition(wind : Float){
+
+    func setWindCondition(wind: Float) {
         self.wind = wind
     }
-    
-    func setHumidity(humidity : Float){
+
+    func setHumidity(humidity: Float) {
         self.humidity = humidity
     }
 }
