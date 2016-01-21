@@ -16,8 +16,11 @@
 		3FF0639D1C2EDE9C00FBFE66 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0639C1C2EDE9C00FBFE66 /* SettingsCell.swift */; };
 		466F9534CEFC846EE0D33CF6 /* Pods_iOSProgrammingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB4B8D4DCD1F8B147BC51CE /* Pods_iOSProgrammingApp.framework */; };
 		8FFE808970C8B08BD8CA438C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE8F0B5EDEA0FB77394C06 /* AppDelegate.swift */; };
+		8FFE81B837C16088FDE470CB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE8F629F87C7FD26431BEE /* Utils.swift */; };
+		8FFE86F42011CD321E6084CC /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE87017B18A1AD3E161EE1 /* JsonHelper.swift */; };
 		8FFE8893E2D1A6DFC38B8700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE84B84AE8B914B5585743 /* LaunchScreen.storyboard */; };
 		8FFE89943D368319183E65E4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE8842A4F53734F0893C6D /* Info.plist */; };
+		8FFE89D014D9C15ECC75C308 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE8C2CE0AF630C54EDD848 /* Extensions.swift */; };
 		8FFE8A8F6C708CC1445CE266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE83AF798CD4EFC983BBE9 /* Assets.xcassets */; };
 		8FFE8E3BEB89C318D372CB65 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE85F29472F5163ABDF626 /* CityTableViewController.swift */; };
 		8FFE8F60C4616C96461EC498 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE8197CCD7260D6210F6B0 /* Main.storyboard */; };
@@ -38,10 +41,13 @@
 		8FFE817C03C90E54805617BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FFE83AF798CD4EFC983BBE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FFE85F29472F5163ABDF626 /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		8FFE87017B18A1AD3E161EE1 /* JsonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
 		8FFE8842A4F53734F0893C6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		8FFE88A5F9A7E98165C8A775 /* iOSProgrammingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSProgrammingApp.xcdatamodel; sourceTree = "<group>"; };
 		8FFE894416B793092BD0C08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FFE8C2CE0AF630C54EDD848 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8FFE8F0B5EDEA0FB77394C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8FFE8F629F87C7FD26431BEE /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C52F63A1BE94D3AAE605F97F /* Pods-iOSProgrammingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProgrammingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSProgrammingApp/Pods-iOSProgrammingApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +89,9 @@
 				3FF0639A1C2EDB5800FBFE66 /* SettingsViewController.swift */,
 				3FF0639C1C2EDE9C00FBFE66 /* SettingsCell.swift */,
 				3F73F9C31C43E32C00121D1A /* CityListCell.swift */,
+				8FFE87017B18A1AD3E161EE1 /* JsonHelper.swift */,
+				8FFE8C2CE0AF630C54EDD848 /* Extensions.swift */,
+				8FFE8F629F87C7FD26431BEE /* Utils.swift */,
 			);
 			path = iOSProgrammingApp;
 			sourceTree = "<group>";
@@ -239,6 +248,9 @@
 				3FF063971C28396B00FBFE66 /* CityDetailViewController.swift in Sources */,
 				8FFE8E3BEB89C318D372CB65 /* CityTableViewController.swift in Sources */,
 				3FF0639B1C2EDB5800FBFE66 /* SettingsViewController.swift in Sources */,
+				8FFE86F42011CD321E6084CC /* JsonHelper.swift in Sources */,
+				8FFE89D014D9C15ECC75C308 /* Extensions.swift in Sources */,
+				8FFE81B837C16088FDE470CB /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

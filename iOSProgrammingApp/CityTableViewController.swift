@@ -11,17 +11,18 @@ import UIKit
 
 
 class CityTableViewController: UITableViewController {
+    @IBOutlet var favoriteTableView: UITableView!
 
-    var city: [CityData] = []
+    var cityData: [CityData] = []
     //Demo Data
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var wue = CityData(name: "Wuerzburg", country: "Deutschland")
-        var sw = CityData(name: "Schweinfurt", country: "Deutschland")
 
-        city.append(wue)
-        city.append(sw)
+        JsonHelper.requestCurCityData("Wuerzburg", callback: {
+            cd in self.cityData.append(cd)
+            self.favoriteTableView.reloadData()
+        })
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -37,7 +38,7 @@ class CityTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (city.count)
+        return (cityData.count)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -46,7 +47,7 @@ class CityTableViewController: UITableViewController {
         //indexPath.section
 
         print("\(indexPath.section) -  \(indexPath.row)")
-        let currentCity = city[indexPath.row]
+        let currentCity = cityData[indexPath.row]
         cell.configureCellForCity(currentCity)
 
         return cell
@@ -61,7 +62,7 @@ class CityTableViewController: UITableViewController {
         if segue.identifier == "cityDetailIdentifier" {
 
             let indexPath = tableView.indexPathForSelectedRow!
-            let currentCity = city[indexPath.row]
+            let currentCity = cityData[indexPath.row]
 
             let d = segue.destinationViewController as! CityDetailViewController
             d.city = currentCity

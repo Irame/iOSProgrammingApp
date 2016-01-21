@@ -31,13 +31,13 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        cityNameLbl.text = city.name
-        countryLbl.text = city.country
-        temperatureLbl.text = String(city.currentWeather?.currentTemperature)
-        weatherConditionLbl.text = String(city.currentWeather?.condition)
-        windLbl.text = String(city.currentWeather?.wind)
-        humidityLbl.text = String(city.currentWeather?.humidity)
-        dateLbl.text = city.currentWeather?.date
+        Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: city.name, defaultValue: "N/A");
+        Utils.setValueOrDefault(&countryLbl.text, valueToSet: city.country, defaultValue: "N/A");
+        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: city.currentWeather?.temperature?.temp, defaultValue: "N/A");
+        Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: city.currentWeather?.condition?.main, defaultValue: "N/A");
+        Utils.setValueOrDefault(&windLbl.text, valueToSet: city.currentWeather?.wind?.speed, defaultValue: "N/A");
+        Utils.setValueOrDefault(&humidityLbl.text, valueToSet: city.currentWeather?.humidity, defaultValue: "N/A");
+        Utils.setValueOrDefault(&dateLbl.text, valueToSet: city.currentWeather?.date, defaultValue: "N/A");
 
         // Do any additional setup after loading the view.
     }

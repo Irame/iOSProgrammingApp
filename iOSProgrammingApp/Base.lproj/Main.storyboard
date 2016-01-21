@@ -81,6 +81,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Overview" id="Ho2-4F-d3a"/>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="e0Y-sp-l2G" id="oE5-2K-sCc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUf-GQ-cvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,7 +138,7 @@
                                                     <rect key="frame" x="489" y="8" width="63" height="20.5"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Eb-Jq-7b8">
@@ -206,7 +209,7 @@
                                 <rect key="frame" x="530.5" y="63" width="49.5" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

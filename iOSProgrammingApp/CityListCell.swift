@@ -16,10 +16,14 @@ class CityListCell: UITableViewCell {
 
     @IBOutlet weak var LblTemperature: UILabel!
     @IBOutlet weak var LblCondition: UILabel!
+
+    //private static let naText: String = "N/A"
+
     func configureCellForCity(data: CityData) {
-        LblCityName.text = data.name
-        LblTemperature.text = String(data.currentWeather?.currentTemperature)
-        LblCondition.text = "none"
-        LblCountryName.text = data.country
+        Utils.setValueOrDefault(&LblCityName.text, valueToSet: data.name, defaultValue: "N/A")
+        Utils.setValueOrDefault(&LblCondition.text, valueToSet: data.currentWeather?.condition?.main, defaultValue: "N/A")
+        Utils.setValueOrDefault(&LblCountryName.text, valueToSet: data.country, defaultValue: "N/A")
+        Utils.setValueOrDefault(&LblTemperature.text, valueToSet: data.currentWeather?.temperature?.temp, defaultValue: "N/A")
     }
+
 }
