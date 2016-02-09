@@ -33,19 +33,19 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: cityData.name, defaultValue: "N/A");
-        Utils.setValueOrDefault(&countryLbl.text, valueToSet: cityData.flag, defaultValue: "N/A");
-        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: cityData.currentWeather?.temperature?.temp, defaultValue: "N/A");
-        Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: cityData.currentWeather?.condition?.main, defaultValue: "N/A");
-        Utils.setValueOrDefault(&windLbl.text, valueToSet: cityData.currentWeather?.wind?.speed, defaultValue: "N/A");
-        Utils.setValueOrDefault(&humidityLbl.text, valueToSet: cityData.currentWeather?.humidity, defaultValue: "N/A");
-        Utils.setValueOrDefault(&dateLbl.text, valueToSet: cityData.currentWeather?.date, defaultValue: "N/A");
-
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
+        cityNameLbl.text = Formatter.formatString(cityData.name)
+        countryLbl.text = Formatter.formatString(cityData.flag);
+        temperatureLbl.text = Formatter.formatTemp(cityData.currentWeather?.temperature?.temp)
+        weatherConditionLbl.text = Formatter.formatString(cityData.currentWeather?.condition?.main);
+        windLbl.text = Formatter.formatWind(cityData.currentWeather?.wind?.speed);
+        humidityLbl.text = Formatter.formatHumidity(cityData.currentWeather?.humidity);
+        dateLbl.text = Formatter.formatDate(cityData.currentWeather?.date);
 
         JsonHelper.requestForecastDataByCity(cityData, callback: self.forecastTableView.reloadData)
     }
