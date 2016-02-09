@@ -10,7 +10,16 @@ import UIKit
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let settings: [String] = ["Temperature Type", "TestSetting"]
+    let settings: [String:String] = ["Temperature Type":"°C"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.extendedLayoutIncludesOpaqueBars = false
+        self.edgesForExtendedLayout = .None
+    }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -26,8 +35,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         //indexPath.section
 
         print("\(indexPath.section) -  \(indexPath.row)")
-        let setting = settings[indexPath.row]
-        cell.configureCellForSetting(setting)
+        let settingKeys = [String](settings.keys)
+        let setting = settingKeys[indexPath.row]
+        let value = settings[setting]
+        cell.configureCellForSetting(setting, value: value!)
 
         return cell
     }

@@ -23,6 +23,7 @@ class CityTableViewController: UITableViewController {
             cd in self.cityData.append(cd)
             self.favoriteTableView.reloadData()
         })
+    }
 
         // Do any additional setup after loading the view, typically from a nib.
 
@@ -36,10 +37,6 @@ class CityTableViewController: UITableViewController {
         cell.configureCellForCity(currentCity)
 
         return cell
-    }
-
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
