@@ -10,11 +10,18 @@ import UIKit
 import Foundation
 
 class CityDetailForecastCell: UITableViewCell {
+    
     @IBOutlet weak var dateLbl: UILabel!
+    
     @IBOutlet weak var forecastLbl: UILabel!
-    @IBOutlet weak var weatherImage: UIImageView!
+    
+    @IBOutlet weak var weatherImageView: UIImageView!
 
+    @IBOutlet weak var forecastTimeLbl: UILabel!
+    
     func configureCellForForecast(data: WeatherData) {
-        dateLbl.text = data.date.formattedStringForDate("dd.MM")
+        Utils.setValueOrDefault(&dateLbl.text, valueToSet: data.date, defaultValue: "N/A")
+        Utils.setValueOrDefault(&forecastLbl.text, valueToSet: data.temperature?.temp, defaultValue: "N/A")
+        weatherImageView.image = UIImage(named: data.condition!.icon!)
     }
 }
