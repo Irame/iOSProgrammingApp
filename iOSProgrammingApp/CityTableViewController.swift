@@ -11,8 +11,10 @@ import UIKit
 
 
 class CityTableViewController: UITableViewController {
+    @IBOutlet var favoriteTableView: UITableView!
 
-    var city : [CityData] = [] //Demo Data
+    var cityData: [CityData] = []
+    //Demo Data
 
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,44 +38,44 @@ class CityTableViewController: UITableViewController {
 
 
     override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
-    
-        override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (city.count)
+        return (cityData.count)
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //get Cell with the Identifier from Storyboard!!
         let cell = tableView.dequeueReusableCellWithIdentifier("CitylistCellIdentifier") as! CityListCell
         //indexPath.section
-        
+
         print("\(indexPath.section) -  \(indexPath.row)")
-        let currentCity = city[indexPath.row]
+        let currentCity = cityData[indexPath.row]
         cell.configureCellForCity(currentCity)
-        
+
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //        sender
-        if segue.identifier == "cityDetailIdentifier"{
-            
+        if segue.identifier == "cityDetailIdentifier" {
+
             let indexPath = tableView.indexPathForSelectedRow!
-            let currentCity = city[indexPath.row]
-            
+            let currentCity = cityData[indexPath.row]
+
             let d = segue.destinationViewController as! CityDetailViewController
             d.city = currentCity
-            
+
         }
 
     }

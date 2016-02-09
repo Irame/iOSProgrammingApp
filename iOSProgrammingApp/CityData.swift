@@ -10,22 +10,22 @@ import Foundation
 
 
 class CityData {
-    
-    let name:String
-    let country:String
-    var currentWeather : WeatherData?
-    var forecastWeather : [WeatherData]?
-    
-    init(name:String, country:String){
+
+    let name: String?
+    let country: String?
+    var currentWeather: WeatherData?
+    var forecastWeather: [WeatherData]? = []
+
+    init(name: String?, country: String?) {
         self.name = name
         self.country = country
     }
-    
-    func setCurrentWeather(weather : WeatherData){
+
+    func setCurrentWeather(weather: WeatherData) {
         currentWeather = weather
     }
-    
-    func addForecastedWeather(weather : WeatherData){
+
+    func addForecastedWeather(weather: WeatherData) {
         if var forecastWeather = forecastWeather {
             forecastWeather.insert(weather, atIndex: (self.forecastWeather?.endIndex)!)
         }

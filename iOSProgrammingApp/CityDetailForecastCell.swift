@@ -7,15 +7,14 @@
 //
 
 import UIKit
+import Foundation
 
 class CityDetailForecastCell: UITableViewCell {
-
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var forecastLbl: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
-    
+
     func configureCellForForecast(data: WeatherData) {
-        dateLbl.text = data.date
-        forecastLbl.text = String(data.currentTemperature)
+        dateLbl.text = data.date.formattedStringForDate("dd.MM")
     }
 }
