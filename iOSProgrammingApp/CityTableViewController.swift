@@ -70,7 +70,7 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
             let currentCity = cityData[indexPath.row]
 
             let d = segue.destinationViewController as! CityDetailViewController
-            d.city = currentCity
+            d.cityData = currentCity
         }
     }
 
@@ -81,7 +81,7 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
 
     func viewController(viewController: GMSAutocompleteViewController!, didAutocompleteWithPlace place: GMSPlace!) {
         dismissFullScreenAutocompleteWidget()
-        JsonHelper.reqeustCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
+        JsonHelper.requestCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
             cd in
             self.cityData.append(cd)
             self.favoriteTableView.reloadData()

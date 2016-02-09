@@ -175,6 +175,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="VTE-It-Dga" id="m7h-dY-My9"/>
+                                    <outlet property="delegate" destination="VTE-It-Dga" id="2qI-bs-MM9"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="797-0w-KV5">
                                 <rect key="frame" x="444.5" y="161" width="135.5" height="30"/>
@@ -257,6 +261,7 @@
                         <outlet property="cityNameLbl" destination="c9W-Ic-vpP" id="0vJ-gV-vr4"/>
                         <outlet property="countryLbl" destination="hZT-3C-OTd" id="ZjJ-Xh-bN5"/>
                         <outlet property="dateLbl" destination="NcE-QN-8T5" id="rw7-XD-iAB"/>
+                        <outlet property="forecastTableView" destination="y7m-qX-EDS" id="SGF-QZ-Okz"/>
                         <outlet property="humidityLbl" destination="JS8-1F-J3U" id="Wpc-09-xg4"/>
                         <outlet property="temperatureLbl" destination="797-0w-KV5" id="OZY-8N-tOH"/>
                         <outlet property="weatherConditionLbl" destination="BCj-lL-jAd" id="7gF-ss-vgj"/>

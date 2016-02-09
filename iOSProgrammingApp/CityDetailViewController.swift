@@ -10,8 +10,10 @@ import UIKit
 
 class CityDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var city: CityData!
+    var cityData: CityData!
 
+    @IBOutlet weak var forecastTableView: UITableView!
+    
     @IBOutlet weak var cityNameLbl: UILabel!
 
     @IBOutlet weak var countryLbl: UILabel!
@@ -31,15 +33,23 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: city.name, defaultValue: "N/A");
-        Utils.setValueOrDefault(&countryLbl.text, valueToSet: city.country, defaultValue: "N/A");
-        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: city.currentWeather?.temperature?.temp, defaultValue: "N/A");
-        Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: city.currentWeather?.condition?.main, defaultValue: "N/A");
-        Utils.setValueOrDefault(&windLbl.text, valueToSet: city.currentWeather?.wind?.speed, defaultValue: "N/A");
-        Utils.setValueOrDefault(&humidityLbl.text, valueToSet: city.currentWeather?.humidity, defaultValue: "N/A");
-        Utils.setValueOrDefault(&dateLbl.text, valueToSet: city.currentWeather?.date, defaultValue: "N/A");
+        Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: cityData.name, defaultValue: "N/A");
+        Utils.setValueOrDefault(&countryLbl.text, valueToSet: cityData.country, defaultValue: "N/A");
+        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: cityData.currentWeather?.temperature?.temp, defaultValue: "N/A");
+        Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: cityData.currentWeather?.condition?.main, defaultValue: "N/A");
+        Utils.setValueOrDefault(&windLbl.text, valueToSet: cityData.currentWeather?.wind?.speed, defaultValue: "N/A");
+        Utils.setValueOrDefault(&humidityLbl.text, valueToSet: cityData.currentWeather?.humidity, defaultValue: "N/A");
+        Utils.setValueOrDefault(&dateLbl.text, valueToSet: cityData.currentWeather?.date, defaultValue: "N/A");
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        JsonHelper.requestForecastCityDataByLocation(cityData, callback: {cityData in //Closure for the win!
+            self.forecastTableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +62,7 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (city.forecastWeather?.count)!
+        return (cityData.forecastWeather?.count)!
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -61,27 +71,13 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         //indexPath.section
 
         print("\(indexPath.section) -  \(indexPath.row)")
-        let forecast = city.forecastWeather![indexPath.row]
+        let forecast = self.cityData.forecastWeather![indexPath.row]
         cell.configureCellForForecast(forecast)
-
         return cell
     }
 
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-
-    /*func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        //tableView.beginUpdates()
-        switch editingStyle {
-        case .Delete:
-            print("löschen")
-            students.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        default:
-            print("nichts machen")
-        }
-        //tableView.endUpdates()
-    }*/
 
 }

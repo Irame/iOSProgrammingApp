@@ -14,7 +14,7 @@ class JsonHelper {
     static private let curDayKey = "weather";
     static private let fiveDayForecast = "forecast";
 
-    public static func reqeustCurCityDataByLocation(lat: Double, lon: Double, callback: (CityData) -> Void) {
+    public static func requestCurCityDataByLocation(lat: Double, lon: Double, callback: (CityData) -> Void) {
         let url = buildURL(curDayKey, "lat=\(lat)", "lon=\(lon)")
 
         requestJSON(url,
@@ -24,6 +24,24 @@ class JsonHelper {
                     return cityData
                 },
                 callback: callback)
+    }
+    
+    public static func requestForecastCityDataByLocation(curCity : CityData, callback: (CityData) -> Void) {
+        let url = buildURL(fiveDayForecast, "q=\(curCity.name)")
+        
+        requestJSON(url,
+            jsonConverter: { json -> CityData in
+                var weatherData : [WeatherData] = []
+                if let jsonWeatherArray = json["list"].array{
+                    for weatherJson in jsonWeatherArray {
+                        weatherData.append(WeatherData.parseFromJSON(weatherJson))
+                    }
+                    curCity.setForecastWeather(weatherData)
+                }
+                
+                return curCity
+            },
+            callback: callback)
     }
 
     private static func buildURL(subDir: String, _ queryArgs: String...) -> NSURL {
