@@ -40,15 +40,15 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         Utils.setValueOrDefault(&windLbl.text, valueToSet: cityData.currentWeather?.wind?.speed, defaultValue: "N/A");
         Utils.setValueOrDefault(&humidityLbl.text, valueToSet: cityData.currentWeather?.humidity, defaultValue: "N/A");
         Utils.setValueOrDefault(&dateLbl.text, valueToSet: cityData.currentWeather?.date, defaultValue: "N/A");
-
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         JsonHelper.requestForecastCityDataByLocation(cityData, callback: {cityData in //Closure for the win!
-            self.forecastTableView.reloadData()
+            dispatch_async(dispatch_get_main_queue()) { // 2
+                  self.forecastTableView.reloadData() // 3
+            }
         })
     }
 
