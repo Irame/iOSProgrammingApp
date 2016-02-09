@@ -24,6 +24,7 @@
 		8FFE8A8F6C708CC1445CE266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE83AF798CD4EFC983BBE9 /* Assets.xcassets */; };
 		8FFE8E3BEB89C318D372CB65 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE85F29472F5163ABDF626 /* CityTableViewController.swift */; };
 		8FFE8F60C4616C96461EC498 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE8197CCD7260D6210F6B0 /* Main.storyboard */; };
+		8FFE8FA3AFBB86F85F1E587B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE879DE7B8E3F72BD402C6 /* Settings.swift */; };
 		8FFE8FBF0F21B373F6AAD755 /* iOSProgrammingApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE8EDC7B810422A36AED5D /* iOSProgrammingApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		8FFE83AF798CD4EFC983BBE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FFE85F29472F5163ABDF626 /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
 		8FFE87017B18A1AD3E161EE1 /* JsonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		8FFE879DE7B8E3F72BD402C6 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8FFE8842A4F53734F0893C6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		8FFE88A5F9A7E98165C8A775 /* iOSProgrammingApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSProgrammingApp.xcdatamodel; sourceTree = "<group>"; };
 		8FFE894416B793092BD0C08D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				8FFE8C2CE0AF630C54EDD848 /* Extensions.swift */,
 				8FFE8F629F87C7FD26431BEE /* Utils.swift */,
 				3F8F903D1C6A018B005224FA /* GoogleMapsAPIKey */,
+				8FFE879DE7B8E3F72BD402C6 /* Settings.swift */,
 			);
 			path = iOSProgrammingApp;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				8FFE86F42011CD321E6084CC /* JsonHelper.swift in Sources */,
 				8FFE89D014D9C15ECC75C308 /* Extensions.swift in Sources */,
 				8FFE81B837C16088FDE470CB /* Utils.swift in Sources */,
+				8FFE8FA3AFBB86F85F1E587B /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

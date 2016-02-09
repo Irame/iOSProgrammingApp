@@ -35,6 +35,8 @@ struct Temperature {
     public static func parseFromJSON(json: JSON) -> Temperature {
         return Temperature(temp: json["temp"].float, maxTemp: json["temp_max"].float, minTemp: json["temp_min"].float)
     }
+
+
 }
 
 struct Wind {
