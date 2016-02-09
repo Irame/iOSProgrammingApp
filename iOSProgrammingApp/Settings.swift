@@ -9,6 +9,7 @@ class Settings {
     private static let defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults();
 
     private static let tempUnitKey:String = "tempUnit"
+    private static let userDefaultsFavoritesKey:String = "favorites"
 
     private init() {}
 
@@ -18,6 +19,24 @@ class Settings {
 
     public static func loadTempUnitIndex() -> Int {
         return defaults.integerForKey(tempUnitKey)
+    }
+
+    public static func loadFavorites(inout cityDataArray: [CityData], callback:() -> ()) {
+        let favs = defaults.arrayForKey(userDefaultsFavoritesKey) as! [NSNumber]?;
+        if let favs = favs {
+            for id in favs {
+                JsonHelper.requestCurCityDataById(Int(id), callback: {
+                    cityData in
+                    cityDataArray.append(cityData);
+                    callback()
+                })
+            }
+        }
+    }
+
+    public static func saveFavorites(cityData:[CityData]) {
+        let nsArray = NSArray(array: cityData.flatMap({cd in cd.id != nil ? NSNumber(long: cd.id!) : nil}));
+        defaults.setValue(nsArray, forKey: userDefaultsFavoritesKey)
     }
 
     private static func getValueAsEnum<E: RawRepresentable where E.RawValue == String>(forKey key:String, withDefault defaultValue:E) -> E {

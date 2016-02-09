@@ -25,6 +25,18 @@ class JsonHelper {
                 },
                 callback: callback)
     }
+
+    public static func requestCurCityDataById(id: Int, callback: (CityData) -> Void) {
+        let url = buildURL(curDayKey, "id=\(id)")
+
+        requestJSON(url,
+                jsonConverter: { json -> CityData in
+                    let cityData = CityData(id: json["id"].int, name: json["name"].string, country: json["sys"]["country"].string)
+                    cityData.setCurrentWeather(WeatherData.parseFromJSON(json))
+                    return cityData
+                },
+                callback: callback)
+    }
     
     public static func requestForecastDataByCity(curCity : CityData, callback: () -> Void) {
         let url = buildURL(fiveDayForecast, "q=\(curCity.name)")

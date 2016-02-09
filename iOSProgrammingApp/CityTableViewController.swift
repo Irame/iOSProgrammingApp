@@ -13,10 +13,8 @@ import GoogleMaps
 class CityTableViewController: UITableViewController, GMSAutocompleteViewControllerDelegate {
     @IBOutlet var favoriteTableView: UITableView!
 
-    var cityData: [CityData] = []
+    var cityData: [CityData] = [];
     //Demo Data
-
-    private static let userDefaultsFavoritesKey:String = "favorites"
 
     var acController:GMSAutocompleteViewController = GMSAutocompleteViewController();
 
@@ -27,9 +25,9 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
 
         acController.delegate = self
 
-        if (defaults.arrayForKey(CityTableViewController.userDefaultsFavoritesKey) == nil) {
-            defaults.setValue(NSArray(), forKey: CityTableViewController.userDefaultsFavoritesKey)
-        }
+        Settings.loadFavorites(&cityData, callback: {() in
+            self.favoriteTableView.reloadData()
+        })
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -65,6 +63,7 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
             // Delete the row from the data source
             cityData.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            Settings.saveFavorites(self.cityData)
         }
     }
 
@@ -90,6 +89,7 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
         JsonHelper.requestCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
             cd in
             self.cityData.append(cd)
+            Settings.saveFavorites(self.cityData)
             self.favoriteTableView.reloadData()
         })
     }
