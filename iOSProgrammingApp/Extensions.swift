@@ -16,3 +16,16 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
 }
+
+extension String {
+
+    subscript (i: Int) -> Character {
+        return self[self.startIndex.advancedBy(i)]
+    }
+
+    subscript (r: Range<Int>) -> String {
+        let start = startIndex.advancedBy(r.startIndex)
+        let end = start.advancedBy(r.endIndex - r.startIndex)
+        return self[Range(start: start, end: end)]
+    }
+}

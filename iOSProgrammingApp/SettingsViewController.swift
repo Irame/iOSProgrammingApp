@@ -19,9 +19,10 @@ class SettingsViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.temperatureUnitSelector.selectedSegmentIndex = 0
+        self.temperatureUnitSelector.selectedSegmentIndex = Settings.loadTempUnitIndex()
     }
-    @IBAction func selectorValueChanged(sender: AnyObject) {
-        
+
+    @IBAction func selectorValueChanged(sender: UISegmentedControl) {
+        Settings.saveTempUnitIndex(sender.selectedSegmentIndex)
     }
 }
