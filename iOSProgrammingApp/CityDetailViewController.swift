@@ -34,7 +34,7 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
 
         Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: cityData.name, defaultValue: "N/A");
-        Utils.setValueOrDefault(&countryLbl.text, valueToSet: cityData.country, defaultValue: "N/A");
+        Utils.setValueOrDefault(&countryLbl.text, valueToSet: cityData.flag, defaultValue: "N/A");
         Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: cityData.currentWeather?.temperature?.temp, defaultValue: "N/A");
         Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: cityData.currentWeather?.condition?.main, defaultValue: "N/A");
         Utils.setValueOrDefault(&windLbl.text, valueToSet: cityData.currentWeather?.wind?.speed, defaultValue: "N/A");
@@ -47,9 +47,7 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        JsonHelper.requestForecastCityDataByLocation(cityData, callback: {cityData in //Closure for the win!
-            self.forecastTableView.reloadData()
-        })
+        JsonHelper.requestForecastCityDataByLocation(cityData, callback: self.forecastTableView.reloadData)
     }
 
     override func didReceiveMemoryWarning() {
