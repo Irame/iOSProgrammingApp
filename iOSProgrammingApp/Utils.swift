@@ -24,7 +24,7 @@ class Utils {
 
     public static func setValueOrDefault(inout variableToSet: String?, valueToSet: NSDate?, defaultValue: String) {
         if let value = valueToSet {
-            variableToSet = value.formattedStringForDate("dd.MM")
+            variableToSet = value.formattedStringForDate("dd/MM H:mm")
         } else {
             variableToSet = defaultValue;
         }

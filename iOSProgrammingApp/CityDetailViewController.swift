@@ -35,13 +35,16 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 
         Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: cityData.name, defaultValue: "N/A");
         Utils.setValueOrDefault(&countryLbl.text, valueToSet: cityData.country, defaultValue: "N/A");
-        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: cityData.currentWeather?.temperature?.temp, defaultValue: "N/A");
+        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: cityData.currentWeather!.temperature!.temp!, defaultValue: "N/A");
         Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: cityData.currentWeather?.condition?.main, defaultValue: "N/A");
         Utils.setValueOrDefault(&windLbl.text, valueToSet: cityData.currentWeather?.wind?.speed, defaultValue: "N/A");
         Utils.setValueOrDefault(&humidityLbl.text, valueToSet: cityData.currentWeather?.humidity, defaultValue: "N/A");
-        Utils.setValueOrDefault(&dateLbl.text, valueToSet: cityData.currentWeather?.date, defaultValue: "N/A");
+        Utils.setValueOrDefault(&dateLbl.text, valueToSet: cityData.currentWeather!.date, defaultValue: "N/A");
+        
+        weatherImage.image = UIImage(named: (cityData.currentWeather?.condition?.icon)!)
         // Do any additional setup after loading the view.
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
