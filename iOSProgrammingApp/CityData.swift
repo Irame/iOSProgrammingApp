@@ -25,6 +25,11 @@ class CityData {
     func setCurrentWeather(weather: WeatherData) {
         currentWeather = weather
     }
+    
+    func setForecastWeather(weatherArray : [WeatherData])
+    {
+        forecastWeather = weatherArray
+    }
 
     func addForecastedWeather(weather: WeatherData) {
         if var forecastWeather = forecastWeather {

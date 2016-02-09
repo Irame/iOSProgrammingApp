@@ -53,6 +53,14 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            cityData.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //        sender
@@ -62,7 +70,7 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
             let currentCity = cityData[indexPath.row]
 
             let d = segue.destinationViewController as! CityDetailViewController
-            d.city = currentCity
+            d.cityData = currentCity
         }
     }
 
@@ -73,7 +81,7 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
 
     func viewController(viewController: GMSAutocompleteViewController!, didAutocompleteWithPlace place: GMSPlace!) {
         dismissFullScreenAutocompleteWidget()
-        JsonHelper.reqeustCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
+        JsonHelper.requestCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
             cd in
             self.cityData.append(cd)
             self.favoriteTableView.reloadData()
