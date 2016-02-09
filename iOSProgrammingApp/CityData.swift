@@ -13,6 +13,7 @@ class CityData {
     let id: Int?
     let name: String?
     let country: String?
+    let flag: String?
     var currentWeather: WeatherData?
     var forecastWeather: [WeatherData]? = []
 
@@ -20,6 +21,11 @@ class CityData {
         self.id = id
         self.name = name
         self.country = country
+        if let country = country {
+            self.flag = Utils.flag(country)
+        } else {
+            self.flag = nil
+        }
     }
 
     func setCurrentWeather(weather: WeatherData) {

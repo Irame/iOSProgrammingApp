@@ -26,11 +26,11 @@ class JsonHelper {
                 callback: callback)
     }
     
-    public static func requestForecastCityDataByLocation(curCity : CityData, callback: (CityData) -> Void) {
+    public static func requestForecastDataByCity(curCity : CityData, callback: () -> Void) {
         let url = buildURL(fiveDayForecast, "q=\(curCity.name)")
         
         requestJSON(url,
-            jsonConverter: { json -> CityData in
+            jsonConverter: { json in
                 var weatherData : [WeatherData] = []
                 if let jsonWeatherArray = json["list"].array{
                     for weatherJson in jsonWeatherArray {
@@ -38,8 +38,6 @@ class JsonHelper {
                     }
                     curCity.setForecastWeather(weatherData)
                 }
-                
-                return curCity
             },
             callback: callback)
     }
@@ -66,7 +64,7 @@ class JsonHelper {
 
             if let data = data {
                 let json = JSON(data: data)
-                callback(jsonConverter(json))
+                dispatch_async(dispatch_get_main_queue()) { callback(jsonConverter(json)) }
             }
         }).resume()
     }
