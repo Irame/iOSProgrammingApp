@@ -69,4 +69,30 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
     @IBAction func addButtonPressed(sender: UIBarButtonItem) {
         presentViewController(acController, animated: true, completion: nil)
     }
+
+
+    func viewController(viewController: GMSAutocompleteViewController!, didAutocompleteWithPlace place: GMSPlace!) {
+        dismissFullScreenAutocompleteWidget()
+        JsonHelper.reqeustCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
+            cd in
+            self.cityData.append(cd)
+            self.favoriteTableView.reloadData()
+        })
+    }
+
+    func viewController(viewController: GMSAutocompleteViewController!, didFailAutocompleteWithError error: NSError!) {
+        dismissFullScreenAutocompleteWidget()
+    }
+
+    func wasCancelled(viewController: GMSAutocompleteViewController!) {
+        dismissFullScreenAutocompleteWidget()
+    }
+
+    private func dismissFullScreenAutocompleteWidget() {
+        if (self.presentedViewController != nil) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        } else if (self.navigationController?.topViewController?.isKindOfClass(GMSAutocompleteViewController) == true) {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
 }
