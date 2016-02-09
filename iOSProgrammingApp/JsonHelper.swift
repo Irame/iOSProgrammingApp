@@ -26,7 +26,7 @@ class JsonHelper {
                 callback: callback)
     }
     
-    public static func requestForecastCityDataByLocation(curCity : CityData, callback: () -> Void) {
+    public static func requestForecastDataByCity(curCity : CityData, callback: () -> Void) {
         let url = buildURL(fiveDayForecast, "q=\(curCity.name)")
         
         requestJSON(url,

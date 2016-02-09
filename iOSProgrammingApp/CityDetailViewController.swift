@@ -47,7 +47,7 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
-        JsonHelper.requestForecastCityDataByLocation(cityData, callback: self.forecastTableView.reloadData)
+        JsonHelper.requestForecastDataByCity(cityData, callback: self.forecastTableView.reloadData)
     }
 
     override func didReceiveMemoryWarning() {
