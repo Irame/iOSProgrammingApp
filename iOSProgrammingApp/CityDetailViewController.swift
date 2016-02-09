@@ -30,41 +30,15 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        cityNameLbl.text = city.name
-        countryLbl.text = city.country
-        if let temp = city.currentWeather?.currentTemperature {
-            temperatureLbl.text = String(format: "Temperature %.1f°", temp)
-        }
-        else {
-            temperatureLbl.text = String("--")
-        }
-        
-        if let cond = city.currentWeather?.condition {
-            weatherConditionLbl.text = String(format: "Condition %s", cond.rawValue)
-        } else {
-            weatherConditionLbl.text = String("--")
-        }
-        
-        if let wind = city.currentWeather?.wind {
-            windLbl.text = String(format: "Wind %.1f", wind)
-        } else {
-            windLbl.text = String("--")
-        }
-        
-        if let humidity = city.currentWeather?.humidity {
-            humidityLbl.text = String(format: "Humidity %.1f", humidity)
-        } else {
-            humidityLbl.text = String("--")
-        }
-        
-        if let date = city.currentWeather?.date {
-            dateLbl.text = String(format: "%s", date)
-        } else {
-            dateLbl.text = String("--")
-        }
-        
-        
+
+        Utils.setValueOrDefault(&cityNameLbl.text, valueToSet: city.name, defaultValue: "N/A");
+        Utils.setValueOrDefault(&countryLbl.text, valueToSet: city.country, defaultValue: "N/A");
+        Utils.setValueOrDefault(&temperatureLbl.text, valueToSet: city.currentWeather?.temperature?.temp, defaultValue: "N/A");
+        Utils.setValueOrDefault(&weatherConditionLbl.text, valueToSet: city.currentWeather?.condition?.main, defaultValue: "N/A");
+        Utils.setValueOrDefault(&windLbl.text, valueToSet: city.currentWeather?.wind?.speed, defaultValue: "N/A");
+        Utils.setValueOrDefault(&humidityLbl.text, valueToSet: city.currentWeather?.humidity, defaultValue: "N/A");
+        Utils.setValueOrDefault(&dateLbl.text, valueToSet: city.currentWeather?.date, defaultValue: "N/A");
+
         // Do any additional setup after loading the view.
     }
 

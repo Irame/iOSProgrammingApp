@@ -27,17 +27,13 @@ struct Condition {
     }
 }
 
+struct Temperature {
+    let temp: Float?;
+    let maxTemp: Float?;
+    let minTemp: Float?;
 
-class WeatherData {
-    
-    var date : String = "no date"
-    var currentTemperature : Float = 0.0
-    var condition = conditionType.notSet
-    var wind : Float = 0.0
-    var humidity : Float = 0.0
-    
-    func setCurrentTemperature(temperature : Float) {
-        currentTemperature = temperature
+    public static func parseFromJSON(json: JSON) -> Temperature {
+        return Temperature(temp: json["temp"].float, maxTemp: json["temp_max"].float, minTemp: json["temp_min"].float)
     }
 }
 

@@ -20,15 +20,10 @@ class CityListCell: UITableViewCell {
     //private static let naText: String = "N/A"
 
     func configureCellForCity(data: CityData) {
-        LblCityName.text = data.name
-        if let temp = data.currentWeather?.currentTemperature {
-            LblTemperature.text = String(format: "%.1f°", temp)
-        } else {
-            LblTemperature.text = String("--")
-        }
-        
-        LblCondition.text = "none"
-        LblCountryName.text = data.country
+        Utils.setValueOrDefault(&LblCityName.text, valueToSet: data.name, defaultValue: "N/A")
+        Utils.setValueOrDefault(&LblCondition.text, valueToSet: data.currentWeather?.condition?.main, defaultValue: "N/A")
+        Utils.setValueOrDefault(&LblCountryName.text, valueToSet: data.country, defaultValue: "N/A")
+        Utils.setValueOrDefault(&LblTemperature.text, valueToSet: data.currentWeather?.temperature?.temp, defaultValue: "N/A")
     }
 
 }

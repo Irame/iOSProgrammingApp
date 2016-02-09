@@ -17,38 +17,14 @@ class CityTableViewController: UITableViewController {
     //Demo Data
 
     override func viewDidLoad() {
-    super.viewDidLoad()
-    var wue = CityData(name:"Wuerzburg",country:"Deutschland")
-    var sw = CityData(name:"Schweinfurt",country:"Deutschland")
-    
-    var weather = WeatherData()
-    weather.currentTemperature = 21
-    weather.humidity = 50
-    weather.condition = conditionType.couldy
-    weather.wind = 90.0
-    weather.date = "20.01.2016"
-    wue.setCurrentWeather(weather)
-    sw.setCurrentWeather(weather)
-        
-    city.append(wue)
-    city.append(sw)
-        
-    // Do any additional setup after loading the view, typically from a nib.
-    }
+        super.viewDidLoad()
 
+        JsonHelper.requestCurCityData("Wuerzburg", callback: {
+            cd in self.cityData.append(cd)
+            self.favoriteTableView.reloadData()
+        })
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (cityData.count)
-    }
+        // Do any additional setup after loading the view, typically from a nib.
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //get Cell with the Identifier from Storyboard!!
