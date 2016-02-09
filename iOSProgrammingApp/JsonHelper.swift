@@ -14,21 +14,19 @@ class JsonHelper {
     static private let curDayKey = "weather";
     static private let fiveDayForecast = "forecast";
 
-    static private let cityQueryPattern = "q=%s";
-
-    public static func requestCurCityData(cityName: String, callback: (CityData) -> Void) {
-        let url = buildURL(curDayKey, queryArgs: "q=\(cityName)");
+    public static func reqeustCurCityDataByLocation(lat: Double, lon: Double, callback: (CityData) -> Void) {
+        let url = buildURL(curDayKey, "lat=\(lat)", "lon=\(lon)")
 
         requestJSON(url,
                 jsonConverter: { json -> CityData in
-                    let cityData = CityData(name: json["name"].string, country: json["sys"]["country"].string)
+                    let cityData = CityData(id: json["id"].int, name: json["name"].string, country: json["sys"]["country"].string)
                     cityData.setCurrentWeather(WeatherData.parseFromJSON(json))
                     return cityData
                 },
                 callback: callback)
     }
 
-    private static func buildURL(subDir: String, queryArgs: String...) -> NSURL {
+    private static func buildURL(subDir: String, _ queryArgs: String...) -> NSURL {
         if let urlComponents = NSURLComponents(URL: apiRequestURL.URLByAppendingPathComponent(subDir), resolvingAgainstBaseURL: false) {
             urlComponents.query = APIID
 

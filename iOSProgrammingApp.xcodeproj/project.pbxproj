@@ -10,6 +10,7 @@
 		3F6CDCFD1C282CA7001ED2DF /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CDCFC1C282CA7001ED2DF /* CityData.swift */; };
 		3F6CDCFF1C2832D7001ED2DF /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6CDCFE1C2832D7001ED2DF /* WeatherData.swift */; };
 		3F73F9C41C43E32C00121D1A /* CityListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73F9C31C43E32C00121D1A /* CityListCell.swift */; };
+		3FA969051C69EDCA00DDE8FC /* GoogleMapsAPIKey in Resources */ = {isa = PBXBuildFile; fileRef = 3FA969041C69EDCA00DDE8FC /* GoogleMapsAPIKey */; };
 		3FF063971C28396B00FBFE66 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF063961C28396B00FBFE66 /* CityDetailViewController.swift */; };
 		3FF063991C283CCA00FBFE66 /* CityDetailForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF063981C283CCA00FBFE66 /* CityDetailForecastCell.swift */; };
 		3FF0639B1C2EDB5800FBFE66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF0639A1C2EDB5800FBFE66 /* SettingsViewController.swift */; };
@@ -32,6 +33,7 @@
 		3F6CDCFC1C282CA7001ED2DF /* CityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
 		3F6CDCFE1C2832D7001ED2DF /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		3F73F9C31C43E32C00121D1A /* CityListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityListCell.swift; sourceTree = "<group>"; };
+		3FA969041C69EDCA00DDE8FC /* GoogleMapsAPIKey */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleMapsAPIKey; sourceTree = "<group>"; };
 		3FF063961C28396B00FBFE66 /* CityDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		3FF063981C283CCA00FBFE66 /* CityDetailForecastCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityDetailForecastCell.swift; sourceTree = "<group>"; };
 		3FF0639A1C2EDB5800FBFE66 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				8FFE87017B18A1AD3E161EE1 /* JsonHelper.swift */,
 				8FFE8C2CE0AF630C54EDD848 /* Extensions.swift */,
 				8FFE8F629F87C7FD26431BEE /* Utils.swift */,
+				3FA969041C69EDCA00DDE8FC /* GoogleMapsAPIKey */,
 			);
 			path = iOSProgrammingApp;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				8FFE8A8F6C708CC1445CE266 /* Assets.xcassets in Resources */,
 				8FFE8893E2D1A6DFC38B8700 /* LaunchScreen.storyboard in Resources */,
 				8FFE8F60C4616C96461EC498 /* Main.storyboard in Resources */,
+				3FA969051C69EDCA00DDE8FC /* GoogleMapsAPIKey in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

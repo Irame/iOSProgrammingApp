@@ -8,21 +8,28 @@
 
 
 import UIKit
+import GoogleMaps
 
-
-class CityTableViewController: UITableViewController {
+class CityTableViewController: UITableViewController, GMSAutocompleteViewControllerDelegate {
     @IBOutlet var favoriteTableView: UITableView!
 
     var cityData: [CityData] = []
     //Demo Data
 
+    private static let userDefaultsFavoritesKey:String = "favorites"
+
+    var acController:GMSAutocompleteViewController = GMSAutocompleteViewController();
+
+    var defaults:NSUserDefaults = NSUserDefaults.standardUserDefaults();
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        JsonHelper.requestCurCityData("Wuerzburg", callback: {
-            cd in self.cityData.append(cd)
-            self.favoriteTableView.reloadData()
-        })
+        acController.delegate = self
+
+        if (defaults.arrayForKey(CityTableViewController.userDefaultsFavoritesKey) == nil) {
+            defaults.setValue(NSArray(), forKey: CityTableViewController.userDefaultsFavoritesKey)
+        }
 
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -66,9 +73,35 @@ class CityTableViewController: UITableViewController {
 
             let d = segue.destinationViewController as! CityDetailViewController
             d.city = currentCity
-
         }
-
+    }
+    
+    @IBAction func addButtonPressed(sender: UIBarButtonItem) {
+        presentViewController(acController, animated: true, completion: nil)
     }
 
+    func viewController(viewController: GMSAutocompleteViewController!, didAutocompleteWithPlace place: GMSPlace!) {
+        dismissFullScreenAutocompleteWidget()
+        JsonHelper.reqeustCurCityDataByLocation(place.coordinate.latitude, lon: place.coordinate.longitude, callback: {
+            cd in
+            self.cityData.append(cd)
+            self.favoriteTableView.reloadData()
+        })
+    }
+
+    func viewController(viewController: GMSAutocompleteViewController!, didFailAutocompleteWithError error: NSError!) {
+        dismissFullScreenAutocompleteWidget()
+    }
+
+    func wasCancelled(viewController: GMSAutocompleteViewController!) {
+        dismissFullScreenAutocompleteWidget()
+    }
+
+    private func dismissFullScreenAutocompleteWidget() {
+        if (self.presentedViewController != nil) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        } else if (self.navigationController?.topViewController?.isKindOfClass(GMSAutocompleteViewController) == true) {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
 }

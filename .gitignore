@@ -61,3 +61,6 @@ fastlane/screenshots
 
 # AppCode
 .idea/
+
+# API Keys
+iOSProgrammingApp/GoogleMapsAPIKey

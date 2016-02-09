@@ -9,6 +9,7 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 
 @UIApplicationMain
@@ -19,6 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:AnyObject]?) -> Bool {
+        let googleMapsAPIKeyFileURL = NSBundle.mainBundle().URLForResource("GoogleMapsAPIKey", withExtension: "")
+        if let apiKeyURL = googleMapsAPIKeyFileURL {
+            do {
+                let apiKey = try NSString.init(contentsOfURL: apiKeyURL, encoding: NSUTF8StringEncoding) as String
+                GMSServices.provideAPIKey(apiKey)
+            } catch {
+                assert(false, "Please Create ur own 'GoogleMapsAPIKey' file")
+            }
+        }
         // Override point for customization after application launch.
         return true
     }

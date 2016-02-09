@@ -3,4 +3,5 @@ use_frameworks!
 
 target 'iOSProgrammingApp' do
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    pod 'GoogleMaps'
 end

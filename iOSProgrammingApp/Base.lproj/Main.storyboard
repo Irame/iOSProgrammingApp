@@ -80,14 +80,20 @@
                             <outlet property="delegate" destination="ksc-N4-fHm" id="YMW-LV-nQx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Overview" id="Ho2-4F-d3a"/>
+                    <navigationItem key="navigationItem" title="Overview" id="Ho2-4F-d3a">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9N4-M9-3Y9">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="ksc-N4-fHm" id="cZE-MX-VDU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoriteTableView" destination="e0Y-sp-l2G" id="oE5-2K-sCc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUf-GQ-cvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="1322"/>
+            <point key="canvasLocation" x="957" y="1342"/>
         </scene>
         <!--City Detail View Controller-->
         <scene sceneID="fOg-hH-VeG">
@@ -252,7 +258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekg-mS-uwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698" y="1286"/>
+            <point key="canvasLocation" x="1750" y="1342"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zqV-q4-mdl">
@@ -271,7 +277,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKl-kz-e0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-988" y="923"/>
+            <point key="canvasLocation" x="-794" y="566"/>
         </scene>
         <!--Settings-->
         <scene sceneID="ygG-6Q-qnA">
@@ -345,7 +351,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uld-oT-HMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="155" y="1310"/>
+            <point key="canvasLocation" x="131" y="1342"/>
         </scene>
     </scenes>
 </document>

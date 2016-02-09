@@ -10,13 +10,14 @@ import Foundation
 
 
 class CityData {
-
+    let id: Int?
     let name: String?
     let country: String?
     var currentWeather: WeatherData?
     var forecastWeather: [WeatherData]? = []
 
-    init(name: String?, country: String?) {
+    init(id: Int?, name: String?, country: String?) {
+        self.id = id
         self.name = name
         self.country = country
     }
