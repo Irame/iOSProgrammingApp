@@ -22,6 +22,6 @@ class CityDetailForecastCell: UITableViewCell {
     func configureCellForForecast(data: WeatherData) {
         dateLbl.text = Formatter.formatDate(data.date)
         forecastLbl.text = Formatter.formatTemp(data.temperature?.temp)
-        weatherImageView.image = UIImage(named: data.condition!.icon!)
+        weatherImageView.image = UIImage(named: (data.condition?.icon)!)
     }
 }

@@ -46,6 +46,7 @@ class CityDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         windLbl.text = Formatter.formatWind(cityData.currentWeather?.wind?.speed);
         humidityLbl.text = Formatter.formatHumidity(cityData.currentWeather?.humidity);
         dateLbl.text = Formatter.formatDate(cityData.currentWeather?.date);
+        weatherImage.image = UIImage(named: (cityData.currentWeather?.condition?.icon)!)
 
         JsonHelper.requestForecastDataByCity(cityData, callback: self.forecastTableView.reloadData)
     }
