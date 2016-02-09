@@ -8,56 +8,20 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    let settings: [String:String] = ["Temperature Type":"°C"]
+class SettingsViewController: UITableViewController {
     
+    @IBOutlet weak var temperatureUnitSelector: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.automaticallyAdjustsScrollViewInsets = false
-        self.extendedLayoutIncludesOpaqueBars = false
-        self.edgesForExtendedLayout = .None
+        self.temperatureUnitSelector.selectedSegmentIndex = 0
     }
-
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    @IBAction func selectorValueChanged(sender: AnyObject) {
+        
     }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //get Cell with the Identifier from Storyboard!!
-        let cell = tableView.dequeueReusableCellWithIdentifier("SettingCellIdentifier") as! SettingsCell
-        //indexPath.section
-
-        print("\(indexPath.section) -  \(indexPath.row)")
-        let settingKeys = [String](settings.keys)
-        let setting = settingKeys[indexPath.row]
-        let value = settings[setting]
-        cell.configureCellForSetting(setting, value: value!)
-
-        return cell
-    }
-
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-
-    /*func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        //tableView.beginUpdates()
-        switch editingStyle {
-        case .Delete:
-            print("löschen")
-            settings.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        default:
-            print("nichts machen")
-        }
-        //tableView.endUpdates()
-    }*/
-
 }
