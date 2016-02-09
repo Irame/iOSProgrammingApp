@@ -64,7 +64,7 @@ class JsonHelper {
 
             if let data = data {
                 let json = JSON(data: data)
-                callback(jsonConverter(json))
+                dispatch_async(dispatch_get_main_queue()) { callback(jsonConverter(json)) }
             }
         }).resume()
     }
