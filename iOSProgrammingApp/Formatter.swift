@@ -41,7 +41,7 @@ class Formatter {
 
     public static func formatDate(date:NSDate?) -> String {
         if let date = date {
-            return date.formattedStringForDate("dd.MM")
+            return date.formattedStringForDate("dd/MM H:mm")
         } else {
             return notAvalableText
         }

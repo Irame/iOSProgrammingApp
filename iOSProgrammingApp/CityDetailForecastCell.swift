@@ -20,8 +20,8 @@ class CityDetailForecastCell: UITableViewCell {
     @IBOutlet weak var forecastTimeLbl: UILabel!
     
     func configureCellForForecast(data: WeatherData) {
-        Utils.setValueOrDefault(&dateLbl.text, valueToSet: data.date, defaultValue: "N/A")
-        Utils.setValueOrDefault(&forecastLbl.text, valueToSet: data.temperature?.temp, defaultValue: "N/A")
+        dateLbl.text = Formatter.formatDate(data.date)
+        forecastLbl.text = Formatter.formatTemp(data.temperature?.temp)
         weatherImageView.image = UIImage(named: data.condition!.icon!)
     }
 }
