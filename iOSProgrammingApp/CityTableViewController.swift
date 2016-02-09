@@ -25,7 +25,8 @@ class CityTableViewController: UITableViewController, GMSAutocompleteViewControl
 
         acController.delegate = self
 
-        Settings.loadFavorites(&cityData, callback: {() in
+        Settings.loadFavorites({city in
+            self.cityData.append(city)
             self.favoriteTableView.reloadData()
         })
 

@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Overview-->
+        <!--Favorites-->
         <scene sceneID="SIf-If-4tL">
             <objects>
                 <tableViewController id="ksc-N4-fHm" customClass="CityTableViewController" customModule="iOSProgrammingApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             <outlet property="delegate" destination="ksc-N4-fHm" id="YMW-LV-nQx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Overview" id="Ho2-4F-d3a">
+                    <navigationItem key="navigationItem" title="Favorites" id="Ho2-4F-d3a">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9N4-M9-3Y9">
                             <connections>
                                 <action selector="addButtonPressed:" destination="ksc-N4-fHm" id="cZE-MX-VDU"/>
@@ -477,11 +477,11 @@
             </objects>
             <point key="canvasLocation" x="943" y="566"/>
         </scene>
-        <!--Weather-->
+        <!--Navigation Controller-->
         <scene sceneID="hzV-Ad-Y6P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nOc-cY-9fd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weather" id="OC6-aS-jYu"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="OC6-aS-jYu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NIh-uM-0Wq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -501,7 +501,7 @@
         <scene sceneID="bZs-sF-3Ib">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="utQ-vd-rTE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="RW4-dc-FCN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsIcon" selectedImage="SettingsIcon" id="RW4-dc-FCN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lf8-Ve-Zr0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -518,4 +518,7 @@
             <point key="canvasLocation" x="131" y="566"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SettingsIcon" width="32" height="32"/>
+    </resources>
 </document>

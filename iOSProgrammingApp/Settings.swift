@@ -21,15 +21,11 @@ class Settings {
         return defaults.integerForKey(tempUnitKey)
     }
 
-    public static func loadFavorites(inout cityDataArray: [CityData], callback:() -> ()) {
+    public static func loadFavorites(callback:(CityData) -> ()) {
         let favs = defaults.arrayForKey(userDefaultsFavoritesKey) as! [NSNumber]?;
         if let favs = favs {
             for id in favs {
-                JsonHelper.requestCurCityDataById(Int(id), callback: {
-                    cityData in
-                    cityDataArray.append(cityData);
-                    callback()
-                })
+                JsonHelper.requestCurCityDataById(Int(id), callback: callback)
             }
         }
     }
