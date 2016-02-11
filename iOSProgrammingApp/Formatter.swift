@@ -14,7 +14,7 @@ class Formatter {
 
     private static let notAvalableText = "N/A"
 
-    public static func formatTemp(temp:Float?) -> String {
+    internal static func formatTemp(temp:Float?) -> String {
         if let temp = temp {
             let unitIndex = Settings.loadTempUnitIndex();
             return String(format: "%.1f \(tempUnitShort[unitIndex])", tempUnitTransform[unitIndex](temp))
@@ -23,7 +23,7 @@ class Formatter {
         }
     }
 
-    public static func formatHumidity(humidity:Float?) -> String {
+    internal static func formatHumidity(humidity:Float?) -> String {
         if let humidity = humidity {
             return String(format: "%.0f%%", humidity)
         } else {
@@ -31,7 +31,7 @@ class Formatter {
         }
     }
 
-    public static func formatWind(wind:Float?) -> String {
+    internal static func formatWind(wind:Float?) -> String {
         if let wind = wind {
             return String(format: "%.1f m/s", wind)
         } else {
@@ -39,7 +39,7 @@ class Formatter {
         }
     }
 
-    public static func formatDate(date:NSDate?) -> String {
+    internal static func formatDate(date:NSDate?) -> String {
         if let date = date {
             return date.formattedStringForDate("dd/MM H:mm")
         } else {
@@ -47,7 +47,7 @@ class Formatter {
         }
     }
 
-    public static func formatString(s:String?) -> String {
+    internal static func formatString(s:String?) -> String {
         if let s = s {
             return s
         } else {

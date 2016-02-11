@@ -15,7 +15,7 @@ struct Condition {
     let desc: String?;
     let icon: String?;
 
-    public static func parseFromJSON(json: JSON) -> Condition? {
+    internal static func parseFromJSON(json: JSON) -> Condition? {
         if let json:JSON = json[0] {
             return Condition(
                 id: json["id"].int,
@@ -32,7 +32,7 @@ struct Temperature {
     let maxTemp: Float?;
     let minTemp: Float?;
 
-    public static func parseFromJSON(json: JSON) -> Temperature {
+    internal static func parseFromJSON(json: JSON) -> Temperature {
         return Temperature(temp: json["temp"].float, maxTemp: json["temp_max"].float, minTemp: json["temp_min"].float)
     }
 
@@ -43,7 +43,7 @@ struct Wind {
     let speed: Float?;
     let deg: Float?;
 
-    public static func parseFromJSON(json: JSON) -> Wind {
+    internal static func parseFromJSON(json: JSON) -> Wind {
         return Wind(speed: json["speed"].float, deg: json["deg"].float)
     }
 }
@@ -70,7 +70,7 @@ class WeatherData {
         self.snow = snow;
     }
 
-    public static func parseFromJSON(json: JSON) -> WeatherData {
+    internal static func parseFromJSON(json: JSON) -> WeatherData {
         return WeatherData(
             date: NSDate(timeIntervalSince1970: json["dt"].doubleValue),
             temperature: Temperature.parseFromJSON(json["main"]),

@@ -13,15 +13,15 @@ class Settings {
 
     private init() {}
 
-    public static func saveTempUnitIndex(tempUnitIndex:Int) {
+    internal static func saveTempUnitIndex(tempUnitIndex:Int) {
         defaults.setValue(tempUnitIndex, forKey: tempUnitKey)
     }
 
-    public static func loadTempUnitIndex() -> Int {
+    internal static func loadTempUnitIndex() -> Int {
         return defaults.integerForKey(tempUnitKey)
     }
 
-    public static func loadFavorites(callback:(CityData) -> ()) {
+    internal static func loadFavorites(callback:(CityData) -> ()) {
         let favs = defaults.arrayForKey(userDefaultsFavoritesKey) as! [NSNumber]?;
         if let favs = favs {
             for id in favs {
@@ -30,7 +30,7 @@ class Settings {
         }
     }
 
-    public static func saveFavorites(cityData:[CityData]) {
+    internal static func saveFavorites(cityData:[CityData]) {
         let nsArray = NSArray(array: cityData.flatMap({cd in cd.id != nil ? NSNumber(long: cd.id!) : nil}));
         defaults.setValue(nsArray, forKey: userDefaultsFavoritesKey)
     }

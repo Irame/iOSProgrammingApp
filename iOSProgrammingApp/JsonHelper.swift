@@ -14,7 +14,7 @@ class JsonHelper {
     static private let curDayKey = "weather";
     static private let fiveDayForecast = "forecast";
 
-    public static func requestCurCityDataByLocation(lat: Double, lon: Double, callback: (CityData) -> Void) {
+    internal static func requestCurCityDataByLocation(lat: Double, lon: Double, callback: (CityData) -> Void) {
         let url = buildURL(curDayKey, "lat=\(lat)", "lon=\(lon)")
 
         requestJSON(url,
@@ -26,7 +26,7 @@ class JsonHelper {
                 callback: callback)
     }
 
-    public static func requestCurCityDataById(id: Int, callback: (CityData) -> Void) {
+    internal static func requestCurCityDataById(id: Int, callback: (CityData) -> Void) {
         let url = buildURL(curDayKey, "id=\(id)")
 
         requestJSON(url,
@@ -38,7 +38,7 @@ class JsonHelper {
                 callback: callback)
     }
     
-    public static func requestForecastDataByCity(curCity : CityData, callback: () -> Void) {
+    internal static func requestForecastDataByCity(curCity : CityData, callback: () -> Void) {
         let url = buildURL(fiveDayForecast, "q=\(curCity.name)")
         
         requestJSON(url,
@@ -70,7 +70,7 @@ class JsonHelper {
     private static func requestJSON<T>(url: NSURL, jsonConverter: (JSON) -> T, callback: (T) -> Void) {
         NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
             (data, response, error) in
-            if let error = error {
+            if let _ = error {
                 return;
             }
 

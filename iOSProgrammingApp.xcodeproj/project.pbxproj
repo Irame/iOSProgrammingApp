@@ -20,7 +20,6 @@
 		8FFE86F42011CD321E6084CC /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE87017B18A1AD3E161EE1 /* JsonHelper.swift */; };
 		8FFE8893E2D1A6DFC38B8700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE84B84AE8B914B5585743 /* LaunchScreen.storyboard */; };
 		8FFE890A265F2E2C8BA203FD /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE81C88A3171B08A6B9560 /* Formatter.swift */; };
-		8FFE89943D368319183E65E4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE8842A4F53734F0893C6D /* Info.plist */; };
 		8FFE89D014D9C15ECC75C308 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE8C2CE0AF630C54EDD848 /* Extensions.swift */; };
 		8FFE8A8F6C708CC1445CE266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FFE83AF798CD4EFC983BBE9 /* Assets.xcassets */; };
 		8FFE8E3BEB89C318D372CB65 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE85F29472F5163ABDF626 /* CityTableViewController.swift */; };
@@ -158,6 +157,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Hackel & Keller";
 			};
 			buildConfigurationList = 8FFE82905A48F22B50EC0BBB /* Build configuration list for PBXProject "iOSProgrammingApp" */;
@@ -182,7 +182,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FFE89943D368319183E65E4 /* Info.plist in Resources */,
 				8FFE8A8F6C708CC1445CE266 /* Assets.xcassets in Resources */,
 				8FFE8893E2D1A6DFC38B8700 /* LaunchScreen.storyboard in Resources */,
 				8FFE8F60C4616C96461EC498 /* Main.storyboard in Resources */,
