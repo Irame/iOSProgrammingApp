@@ -141,7 +141,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cjt-xK-jdE">
-                                                    <rect key="frame" x="441" y="6" width="40" height="40"/>
+                                                    <rect key="frame" x="432" y="6" width="40" height="40"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="F3c-Jd-N0y"/>
@@ -157,29 +157,13 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstItem="XH7-Pr-OZF" firstAttribute="leading" secondItem="Cjt-xK-jdE" secondAttribute="trailing" constant="8" id="6le-Ok-hu7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Cjt-xK-jdE" secondAttribute="bottom" constant="-5.5" id="Cub-oO-ybd"/>
-                                                <constraint firstAttribute="topMargin" secondItem="Cjt-xK-jdE" secondAttribute="top" id="bvY-j1-LWm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Cjt-xK-jdE" secondAttribute="trailing" constant="80" id="THy-d2-a4x"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="kTe-TL-DC6" secondAttribute="leading" id="c0b-tP-nVc"/>
-                                                <constraint firstItem="XH7-Pr-OZF" firstAttribute="leading" secondItem="Cjt-xK-jdE" secondAttribute="trailing" constant="8" id="hQl-CX-6Zm"/>
                                                 <constraint firstItem="kTe-TL-DC6" firstAttribute="top" secondItem="Dp8-iI-Twr" secondAttribute="topMargin" constant="9" id="iyh-di-owi"/>
                                                 <constraint firstItem="XH7-Pr-OZF" firstAttribute="top" secondItem="Dp8-iI-Twr" secondAttribute="topMargin" constant="9" id="j1x-LB-40g"/>
                                                 <constraint firstItem="Cjt-xK-jdE" firstAttribute="top" secondItem="Dp8-iI-Twr" secondAttribute="topMargin" constant="-2" id="jkK-da-m25"/>
-                                                <constraint firstAttribute="topMargin" secondItem="Cjt-xK-jdE" secondAttribute="top" id="n1l-MQ-IUs"/>
-                                                <constraint firstItem="Cjt-xK-jdE" firstAttribute="top" secondItem="Dp8-iI-Twr" secondAttribute="topMargin" constant="-5" id="owz-Hx-1K3"/>
-                                                <constraint firstItem="XH7-Pr-OZF" firstAttribute="leading" secondItem="Cjt-xK-jdE" secondAttribute="trailing" constant="8" id="pYx-nR-of7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="XH7-Pr-OZF" secondAttribute="trailing" id="qVN-PO-AOx"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Cub-oO-ybd"/>
-                                                    <exclude reference="bvY-j1-LWm"/>
-                                                    <exclude reference="n1l-MQ-IUs"/>
-                                                    <exclude reference="owz-Hx-1K3"/>
-                                                    <exclude reference="6le-Ok-hu7"/>
-                                                    <exclude reference="pYx-nR-of7"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
